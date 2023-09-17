@@ -27,4 +27,7 @@ STEP 5
     creo il seeder associato alla mia entità con il comando    ( IL SEEDER IN PRATICA è CREARE LE RIGHE DIRETTAMENTE DA LARAVEL INVECE CHE A MANO DA PHPMYADMIN)  
             php artisan make:seeder ComicSeeder
     riempio il seeder con le operazioni necessarie a salvare i miei dati di test
-                
+                php artisan migrate
+    popoliamo la migrate
+    poi     php artisan db:seed --class=ComicSeeder  (SE USIAMO IL DD($comics); COME DEGUB, CON IL COMANDO SEGUENTE POSSIAMO VEDERLO DIRETTAMENTE IN CONSOLE.) 
+

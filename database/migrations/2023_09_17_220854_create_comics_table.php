@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('thumb', 1024)->nullable();
             $table->unsignedDecimal('price', 5, 2);
             $table->string('series', 64);
-            $table->date('sale_data');
-            $table->string('artists',200);
-            $table->string('writers',200);
+            $table->date('sale_date');
+            $table->text('artists');
+            $table->text('writers');
 
             $table->timestamps();
         });
