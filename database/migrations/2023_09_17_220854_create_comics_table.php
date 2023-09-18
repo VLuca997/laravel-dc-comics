@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('comics', function (Blueprint $table) {
+        Schema::create('comics', function (Blueprint $table) {//riempimento dati iniziali
             $table->id();
             $table->string('title', 100);
             $table->text('description');
-            $table->string('thumb', 1024)->nullable();
+            $table->string('thumb', 2048)->nullable();
             $table->unsignedDecimal('price', 5, 2);
-            $table->string('series', 64);
-            $table->date('sale_date');
-            $table->text('artists');
-            $table->text('writers');
+            $table->string('series', 64)->nullable();
+            $table->date('sale_date')->nullable();
+            $table->text('artists')->nullable();
+            $table->text('writers')->nullable();
 
             $table->timestamps();
         });

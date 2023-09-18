@@ -15,9 +15,9 @@ class ComicSeeder extends Seeder
      */
     public function run(): void
     {
-        $comics = config('comic');
         // dd($comics);//funge
         Comic::truncate();// svuotiamo la tabella ad ogni riavvio per modificarla e no navere doppioni
+        $comics = config('comic');
         foreach($comics as $singleComic){
             $comic = new Comic();
             $comic->title = $singleComic['title'];
@@ -26,8 +26,8 @@ class ComicSeeder extends Seeder
             $comic->price = $singleComic['price'];
             $comic->series = $singleComic['series'];
             $comic->sale_date = $singleComic['sale_date'];
-            $comic->artists = join(', ', $singleComic['artists']);
-            $comic->writers = join(', ', $singleComic['writers']);
+            $comic->artists = implode('| ', $singleComic['artists']);
+            $comic->writers = implode('| ', $singleComic['writers']);
 
             $comic->save();
 
