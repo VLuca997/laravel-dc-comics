@@ -17,7 +17,7 @@ class ComicSeeder extends Seeder
     {
         $comics = config('comic');
         // dd($comics);//funge
-
+        Comic::truncate();// svuotiamo la tabella ad ogni riavvio per modificarla e no navere doppioni
         foreach($comics as $singleComic){
             $comic = new Comic();
             $comic->title = $singleComic['title'];

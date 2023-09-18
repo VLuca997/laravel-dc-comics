@@ -18,7 +18,7 @@ STEP 3
             aggiungiamo un entità tramite le CRUD:
                 creiamo una tabella/ ovvero una migration:
                     php artisan make:migrate create_comics_table
-                    php artisan migrate
+                    php artisan migrate   7 php artisan migrate:refresh
 STEP 4 
     creo il model associato alla mia entità, al singolare ( Comics , quindi Comic) tramite     
              php artisan make:model Comic
@@ -31,3 +31,18 @@ STEP 5
     popoliamo la migrate
     poi     php artisan db:seed --class=ComicSeeder  (SE USIAMO IL DD($comics); COME DEGUB, CON IL COMANDO SEGUENTE POSSIAMO VEDERLO DIRETTAMENTE IN CONSOLE.) 
 
+STEP 6
+    creiamo il CONTROLLER
+        php artisan make:controller Admin/ComicController --resource
+
+
+        \app/Http/Controllers/Admin/ComicController.php created successfully. ( qui troveremo le funzioni per le CRUD)
+
+    ora dobbiamo collegare queste funzioni del controller alle rotte;
+        in web.php:
+            Route::resources('comics', ComicController::class);//reindirizza automaticamente a tutte le rotte della CRUD, crea 7 rotte
+
+            poi importiamo :
+                use App\Http\Controllers\Admin\ComicController;// importiamo il controller
+    per verificare se le rotte funzionano:
+        php artisan route:list
