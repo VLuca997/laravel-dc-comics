@@ -21,9 +21,9 @@ return new class extends Migration
             $table->date('sale_date')->nullable();
             $table->text('artists')->nullable();
             $table->text('writers')->nullable();
-
+            
             $table->timestamps();
-        });
+        }); 
     }
 
     /**

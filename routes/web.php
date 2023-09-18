@@ -15,11 +15,14 @@ use App\Http\Controllers\Admin\ComicController;// importiamo il controller
 
 Route::get('/', function () {
     return view('/layouts/layout');
-});
+})->name('home');
 
-Route::get('/comics', function () {
+
+
+Route::get('/comic', function () {
     return view('comics');
 });
+
 Route::resource('comics', ComicController::class);   //reindirizza automaticamente a tutte le rotte della CRUD, crea 7 rotte
 
 
