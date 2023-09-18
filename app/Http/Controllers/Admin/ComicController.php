@@ -44,6 +44,22 @@ class ComicController extends Controller
         [
             'title.required' => ' Il Titolo è obbligatorio!',
             'title.max' => ' Il Titolo può essere lungo massimo 100 caratteri',
+
+            'description.required' => 'La Descrizione è obbligatoria!',
+            
+            'thumb.required' => ' L Immagine è obbligatoria!',
+            'thumb.max' => ' stringa lunga massimo 2048 caratteri',
+            
+            'series.required' => ' La Serie è obbligatoria!',
+            'series.max' => ' Il Titolo della Serie può essere lungo massimo 64caratteri',
+
+            'artists.required' => ' Il Nome dell Artista è obbligatorio!',
+            'title.max' => ' Il Titolo può essere lungo massimo 100 caratteri',
+
+            'writers.required' => ' Il Nome degli scrittori è obbligatorio!',
+
+            'sale_date.required' => ' Il Titolo è obbligatorio!',
+            'sale_date.date' => 'GG/MM/AAAA',
         ]
     );
 
