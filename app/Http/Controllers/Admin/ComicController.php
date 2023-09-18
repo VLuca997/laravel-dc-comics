@@ -22,7 +22,7 @@ class ComicController extends Controller
      */
     public function create()
     {
-        return view ('admin.comics.index');
+        return view ('admin.comics.create');
     }
 
     /**
@@ -31,27 +31,30 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         
-        $request->validate([
-            'title' => 'required|max:100',
-            'description' => 'required',
-            'thumb' => 'nullable|max:2048',
-            'price' => 'required|numeric',
-            'series' => 'nullable|max:64',
-            'sale_date' => 'nullable|date',
-            'artists' => 'nullable',
-            'writers' => 'nullable',
-        ]);
-        $comic = new Comic();
-        $comic->title = $request->input('title');
-        $comic->description = $request->input('description');
-        $comic->thumb = $request->input('thumb');
-        $comic->price = $request->input('price');
-        $comic->series = $request->input('series');
-        $comic->sale_date = $request->input('sale_date');
-        $comic->artists =  $request->input('artists');
-        $comic->writers = $request->input('writers');
+        // $request->validate([
+        //     'title' => 'required|max:100',
+        //     'description' => 'required',
+        //     'thumb' => 'nullable|max:2048',
+        //     'price' => 'required|numeric',
+        //     'series' => 'nullable|max:64',
+        //     'sale_date' => 'nullable|date',
+        //     'artists' => 'nullable',
+        //     'writers' => 'nullable',
+        // ]);
 
-        return redirect()->route('admin.comics.show', ['comic', $comic->id]);
+        
+            $comic = new Comic();
+            $comic->title = $request->input('title');
+            $comic->description = $request->input('description');
+            $comic->thumb = $request->input('thumb');
+            $comic->price = $request->input('price');
+            $comic->series = $request->input('series');
+            $comic->sale_date = $request->input('sale_date');
+            $comic->artists =  $request->input('artists');
+            $comic->writers = $request->input('writers');
+            $comic->save();
+
+            return redirect()->route('comics.show', ['comic' => $comic->id]);
     }
 
     /**

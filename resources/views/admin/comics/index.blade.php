@@ -15,6 +15,7 @@
                 <h5 class="fw-bold">{{$comic->price}}€</h5>
                 <h5>{{$comic->sale_date}}</h5>
                 <a class="btn btn-success" href="{{ route('comics.show', ['comic' => $comic->id])}}"> click me </a>
+                <a class="btn btn-success" href="{{ route('comics.create')}}"> form me </a>
             </div>
 
             @endforeach
