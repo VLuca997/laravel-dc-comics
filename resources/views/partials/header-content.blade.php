@@ -11,9 +11,11 @@
                     <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home-Page</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('comics.index')}}">Comics</a>
+                    <a class="nav-link" href="{{ route('comics.index')}}">All Comics</a>
                 </li>
-                
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('comics.create')}}">New Comic</a>
+                </li>
                 </ul>
             </div>
         </div>

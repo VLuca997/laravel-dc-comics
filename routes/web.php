@@ -22,7 +22,9 @@ Route::get('/', function () {
 Route::get('/comic', function () {
     return view('comics');
 });
-
+// Route::get('/comics/create', function () {
+//     return view('comics');
+// });
 Route::resource('comics', ComicController::class);   //reindirizza automaticamente a tutte le rotte della CRUD, crea 7 rotte
 
 

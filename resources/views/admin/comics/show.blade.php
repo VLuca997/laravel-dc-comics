@@ -10,6 +10,9 @@
         <img class="img-fluid  w-50" src="{{$comic->thumb}}" alt="{{$comic->title}}">
         <h5>{{$comic->series}}</h5>
         <h5>{{$comic->description}}</h5>
+        <h5>{{$comic->artists}}</h5>
+        <h5>{{$comic->writers}}</h5>
+
         <h5 class="fw-bold">{{$comic->price}}€</h5>
         <h5>{{$comic->sale_date}}</h5>
     

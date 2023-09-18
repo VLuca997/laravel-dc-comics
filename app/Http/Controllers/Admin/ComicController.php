@@ -31,28 +31,42 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         
-        // $request->validate([
-        //     'title' => 'required|max:100',
-        //     'description' => 'required',
-        //     'thumb' => 'nullable|max:2048',
-        //     'price' => 'required|numeric',
-        //     'series' => 'nullable|max:64',
-        //     'sale_date' => 'nullable|date',
-        //     'artists' => 'nullable',
-        //     'writers' => 'nullable',
-        // ]);
+            $request->validate([
+                'title' => 'required|max:100',
+                'description' => 'required',
+                'thumb' => 'nullable|max:2048',
+                'price' => 'required|numeric',
+                'series' => 'nullable|max:64',
+                'sale_date' => 'nullable|date',
+                'artists' => 'nullable',
+                'writers' => 'nullable',
+            ],
+        [
+            'title.required' => ' Il Titolo è obbligatorio!',
+            'title.max' => ' Il Titolo può essere lungo massimo 100 caratteri',
+        ]
+    );
 
+
+
+        //sintassi alternativa:
+            $formData = $request->all();
+        $comic = Comic::create($formData); //definito in (App/Model/Comic.php-->click sull' use Illuminate\Database\Eloquent\Factories\HasFactory;)  poi percorso Database/Eloquent/Concerns/Guardattributes.php--> fillable e definiamo le key definite nel seeder.
+
+
+
+        // ALTRA SINTASSI PIU USATA E SEMPLICE:
         
-            $comic = new Comic();
-            $comic->title = $request->input('title');
-            $comic->description = $request->input('description');
-            $comic->thumb = $request->input('thumb');
-            $comic->price = $request->input('price');
-            $comic->series = $request->input('series');
-            $comic->sale_date = $request->input('sale_date');
-            $comic->artists =  $request->input('artists');
-            $comic->writers = $request->input('writers');
-            $comic->save();
+            // $comic = new Comic();
+            // $comic->title = $request->input('title');
+            // $comic->description = $request->input('description');
+            // $comic->thumb = $request->input('thumb');
+            // $comic->price = $request->input('price');
+            // $comic->series = $request->input('series');
+            // $comic->sale_date = $request->input('sale_date');
+            // $comic->artists =  $request->input('artists');
+            // $comic->writers = $request->input('writers');
+            // $comic->save();
 
             return redirect()->route('comics.show', ['comic' => $comic->id]);
     }
@@ -60,9 +74,10 @@ class ComicController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Comic $comic)
     {
-        $comic = Comic::findOrFail($id);
+        // public function show(string $id)
+        // $comic = Comic::findOrFail($id);
 
         return view ('admin.comics.show', compact('comic'));
 
